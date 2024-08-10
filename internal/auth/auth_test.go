@@ -13,7 +13,7 @@ func TestGetAPIKey(t *testing.T) {
 		expectErr   bool
 	}{
 		{
-			name: "Valid APIKey",
+			name: "valid APIKey",
 			headers: http.Header{
 				"Authorization": []string{"ApiKey 1234abcd"},
 			},
@@ -21,7 +21,7 @@ func TestGetAPIKey(t *testing.T) {
 			expectErr:   false,
 		},
 		{
-			name: "Missing Authorization header",
+			name: "missing Authorization header",
 			headers: http.Header{
 				"Content-Type": []string{"application/json"},
 			},
@@ -29,7 +29,7 @@ func TestGetAPIKey(t *testing.T) {
 			expectErr:   true,
 		},
 		{
-			name: "Malformed Authorization header 1",
+			name: "malformed Authorization header 1",
 			headers: http.Header{
 				"Authorization": []string{"Bearer 12345"},
 			},
@@ -37,7 +37,7 @@ func TestGetAPIKey(t *testing.T) {
 			expectErr:   true,
 		},
 		{
-			name: "Malformed Authorization header 2",
+			name: "malformed Authorization header 2",
 			headers: http.Header{
 				"Authorization": []string{"12345"},
 			},
